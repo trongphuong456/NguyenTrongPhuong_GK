@@ -1,0 +1,50 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (player) { %>
+        <form class="add-player-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">Ho</label>
+                    <input type="text" class="form-control" name="Ho" id="Ho" value="<%= player.Ho %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Ten</label>
+                    <input type="text" class="form-control" name="Ten" id="Ten" value="<%= player.Ten %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="username">thangdki</label>
+                    <input type="text" class="form-control" name="thangdki" id="thangdki" value="<%= player.thangdki %>" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="number">sothang</label>
+                    <input type="number" class="form-control" name="sothang" id="sothang" placeholder="sothang" value="<%= player.sothang %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="Tien">tien</label>
+                    <select id="Tien" name="Tien" class="form-control" required>
+                        <option selected><%= player.Tien %></option>
+                        <option>180 000</option>
+                        <option>350 000</option>
+                        <option>520 000</option>
+                        <option>690 000</option>
+                        <option>860 000</option>
+                        <option>1 040 000</option>
+                        <option>1 250 000</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Gymer</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Gymers Not Found. Go <a href="/add">here</a> to add gymers .</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

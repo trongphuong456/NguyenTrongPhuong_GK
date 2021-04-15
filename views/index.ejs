@@ -1,0 +1,47 @@
+<%- include ('partials/header.ejs'); -%>
+    <div class="d-flex justify-content-center mt-3">
+        <form class="d-flex" action="/" method="get">
+            <input type="text" name="search" id="search">
+            <input class="btn btn-primary" type="submit" value="Search">
+        </form>
+    </div>
+    <div class="table-wrapper">
+        <% if (gymer_tb.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">stt</th>
+                        <th scope="col">image</th>
+                        <th scope="col">Ho</th>
+                        <th scope="col">Ten</th>
+                        <th scope="col">Tien</th>
+                        <th scope="col">sothang</th>                        
+                        <th scope="col">thangdki</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%gymer_tb.forEach((player, index) => { %>
+                        <tr>
+                            <th scope="row"><%= player.stt%></th>
+                            <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
+                            <td><%= player.Ho %></td>
+                            <td><%= player.Ten %></td>
+                            <td><%= player.Tien %></td>
+                            <td><%= player.thangdki %></td>
+                            <td><%= player.sothang %></td>
+                            <td>
+                                <a href="/edit/<%= player.stt %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= player.stt %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No Gymers found. Go <a href="/add" >here</a> to add Gymers.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
